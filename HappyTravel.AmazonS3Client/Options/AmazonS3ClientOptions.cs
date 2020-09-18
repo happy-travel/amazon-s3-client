@@ -5,15 +5,24 @@ namespace HappyTravel.AmazonS3Client.Options
 {
     public class AmazonS3ClientOptions
     {
+        /// <summary>
+        /// Amazon S3 Access key ID
+        /// </summary>
         public string AccessKeyId { get; set; } = string.Empty;
         
+        /// <summary>
+        /// Amazon S3 Secret access key
+        /// </summary>
         public string AccessKey { get; set; } = string.Empty;
         
         /// <summary>
-        /// Name of an existed bucket
+        /// Maximum number of objects to upload into a bucket at one time
         /// </summary>
-        public string BucketName { get; set; } = string.Empty;
-
+        public int MaxObjectsNumberToUpload { get; set; } = 50;
+        
+        //Number of simultaneous uploads to a bucket
+        public int UploadConcurrencyNumber { get; set; } = 5;
+        
         /// <summary>
         /// Config of the Amazon S3 client.
         /// RegionEndpoint is a required option.
