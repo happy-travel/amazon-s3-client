@@ -3,6 +3,14 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <Nullable>enable</Nullable>
+        <LangVersion>8.0</LangVersion>
+        <PackageProjectUrl>https://github.com/happy-travel/amazon-s3-client</PackageProjectUrl>
+        <RepositoryURL>https://github.com/happy-travel/amazon-s3-client</RepositoryURL>
+        <Version>0.8.0</Version>
+        <PackageVersion>0.8.0</PackageVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Oleg Konovalov</Authors>
+        <Description>Library for upload objects to Amazon S3 storage</Description>
     </PropertyGroup>
 
     <ItemGroup>

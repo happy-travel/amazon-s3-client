@@ -1,0 +1,28 @@
+name: S3 lib NuGet package Generation
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    name: Update NuGet
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Install NuGet client
+      uses: nuget/setup-nuget@v1
+
+    - name: Build solution and generate NuGet package
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet build --configuration Release
+      shell: bash
+
+    - name: Push generated package to GitHub registry
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
+      run: nuget push ..\amazon-s3-client\HappyTravel.AmazonS3Client\bin\Release\*.nupkg -Source "github"
